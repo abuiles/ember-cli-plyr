@@ -27,6 +27,9 @@ export default Ember.Component.extend({
     this.set('plyrObject', this.element.plyr);
 
     if (this.get('evented') && this.get('plyrObject')) {
+      //send init event with video player so parent can control plyr object
+      this.sendAction('videoReady',this.get('plyrObject'));
+
       const media = this.get('plyrObject').media;
 
       this.$(media).on('abort', (e) => {
