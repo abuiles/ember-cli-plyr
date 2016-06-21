@@ -19,9 +19,9 @@ export default Ember.Component.extend({
     // this.$().attr('contenteditable', true);
     const options = this.get('options');
     if (options !== null) {
-      plyr.setup(this, options);
+      plyr.setup(this.element, options);
     } else {
-      plyr.setup(this);
+      plyr.setup(this.element);
     }
     // plyr.setup();
     this.set('plyrObject', this.element.plyr);
